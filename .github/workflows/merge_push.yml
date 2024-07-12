@@ -29,4 +29,4 @@ jobs: # 실행 작업 코드
         uses: ad-m/github-push-action@master
         with:
           branch: main
-          github_token: ${{ secrets.SECRET_TOKEN }}
+          github_token: ${{ secrets.PUB_TOKEN }}
