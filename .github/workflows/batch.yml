@@ -8,7 +8,7 @@ jobs:
   check-bats-version:
     runs-on: windows-latest
     steps:
-      # feature/save-test-logs 브랜치로 checkout
+      # logs 브랜치로 checkout
       - name: logs branch 
         uses: actions/checkout@v2
         with:
