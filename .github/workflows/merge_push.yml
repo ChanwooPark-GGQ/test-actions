@@ -1,0 +1,32 @@
+name: Merge feature/automation-batch to Main
+
+on: # 발생 이벤트 타입
+  push: # push 이벤트 발생 시
+    branches: # 타겟 브랜치
+      - 'dev'
+
+jobs: # 실행 작업 코드
+  merge: # merge 실행
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch 
+        uses: actions/checkout@v2
+        with:
+          ref: 'main'
+          fetch-depth: '0'
+
+      - name: Configure Git # commit을 위한 git config 설정
+        run: |
+          git config user.name "ChanwooPark-GGQ"
+          git config user.email "chanwoo.park@ggq.gg"
+
+      - name: Merge 'dev' branch 
+        run: |
+          git merge origin/dev --no-edit
+
+      - name: Push changes to main branch 
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main
+          github_token: ${{ secrets.SECRET_TOKEN }}
