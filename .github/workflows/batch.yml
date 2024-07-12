@@ -2,7 +2,7 @@ name: Test batch
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/10 * * * *'
 
 jobs:
   check-bats-version:
