@@ -20,6 +20,7 @@ jobs:
         run: |
           git config user.name "ChanwooPark-GGQ"
           git config user.email "chanwoo.park@ggq.gg"
+          git push --set-upstream origin logs
       
       # batch file 실행
       - uses: actions/setup-node@v1
