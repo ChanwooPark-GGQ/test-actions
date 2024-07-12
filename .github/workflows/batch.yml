@@ -1,0 +1,34 @@
+name: Test
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  check-bats-version:
+    runs-on: windows-latest
+    steps:
+      # feature/save-test-logs 브랜치로 checkout
+      - name: logs branch 
+        uses: actions/checkout@v2
+        with:
+          ref: 'logs'
+          fetch-depth: '0'
+
+      # batch file 실행
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install -g bats
+      - run: bats -v .\..\..\test.bat
+
+      # commit을 위한 git config 설정
+      - name: Configure Git 
+        run: |
+          git config user.name "ChanwooPark-GGQ"
+          git config user.email "chanwoo.park@ggq.gg"
+
+      - uses: actions/checkout@v2  
+      - uses: ad-m/github-push-action@master
+        with:
+          branch: logs
+          github_token: ${{ secrets.PUB_TOKEN }}
