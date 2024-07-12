@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: 'logs'
-          fetch-depth: '1'
+          fetch-depth: '0'
 
       # commit을 위한 git config 설정
       - name: Configure Git 
