@@ -15,19 +15,18 @@ jobs:
           ref: 'logs'
           fetch-depth: '1'
 
-      # batch file 실행
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v .\..\..\test.bat
-
       # commit을 위한 git config 설정
       - name: Configure Git 
         run: |
           git config user.name "ChanwooPark-GGQ"
           git config user.email "chanwoo.park@ggq.gg"
+      
+      # batch file 실행
+      - uses: actions/setup-node@v1
+      - run: 
+          npm install -g bats
+          bats -v .\..\..\test.bat
 
-      - uses: actions/checkout@v2  
       - uses: ad-m/github-push-action@master
         with:
           branch: logs
