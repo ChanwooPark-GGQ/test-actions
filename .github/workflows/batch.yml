@@ -15,10 +15,6 @@ jobs:
           ref: 'logs'
           fetch-depth: '0'
 
-      - name: re-sync pull logs branch 
-        run:
-          git pull
-        
       # batch file 실행
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -35,4 +31,4 @@ jobs:
       - uses: ad-m/github-push-action@master
         with:
           branch: logs
-          github_token: ${{ secrets.SECRET_TOKEN }}
+          github_token: ${{ secrets.PUB_TOKEN }}
