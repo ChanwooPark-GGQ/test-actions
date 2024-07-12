@@ -1,4 +1,4 @@
-name: Merge feature/automation-batch to Main
+name: Merge dev to Main
 
 on: # 발생 이벤트 타입
   push: # push 이벤트 발생 시
