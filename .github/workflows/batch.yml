@@ -1,4 +1,4 @@
-name: Test batch
+name: Running Test Batch 
 
 on:
   schedule:
