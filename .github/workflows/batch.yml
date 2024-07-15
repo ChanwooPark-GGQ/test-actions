@@ -27,8 +27,7 @@ jobs:
       - run: 
           npm install -g bats
           bats -v .\..\..\test.bat
-          cd ../../
-          git add .
+          git add -A
           git commit -m "add logs"
 
       - uses: ad-m/github-push-action@master
