@@ -20,4 +20,14 @@ jobs:
       - run: 
           npm install -g bats
           bats -v .\..\..\test.bat
-          bats -v .\..\..\push.bat
+          
+      # commit changes
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: "ChanwooPark-GGQ"
+          author_email: "chanwoo.park@ggq.gg"
+          message: 'Add Test Logs'
+          add: '../../results.log'
+          branch: 'origin/logs'
+          github_token: ${{ secrets.PUB_TOKEN }}
