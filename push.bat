@@ -10,6 +10,9 @@ move %RESULTS_FILE% ../../
 
 cd ../../
 
+git config --global user.name "ChanwooPark-GGQ"
+git config --global user.email "chanwoo.park@ggq.gg"
+
 git pull
 git checkout 'origin/logs'
 
