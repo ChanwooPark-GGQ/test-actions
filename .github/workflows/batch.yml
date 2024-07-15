@@ -20,18 +20,4 @@ jobs:
       - run: 
           npm install -g bats
           bats -v .\..\..\test.bat
-
-      # commit을 위한 git config 설정
-      - name: Configure Git 
-        run: |
-          git config --global user.name "ChanwooPark-GGQ"
-          git config --global user.email "chanwoo.park@ggq.gg"
-          git pull
-
-      - name: Commit report
-        run: |
-          git config --global user.name "ChanwooPark-GGQ"
-          git config --global user.email "chanwoo.park@ggq.gg"
-          git commit -m "Automated report"
-          git add -A
-          git push
+          bats -v .\..\..\push.bat
