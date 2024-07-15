@@ -20,6 +20,10 @@ jobs:
         run: date +%s > report.txt
           
       # commit changes
+      - uses: actions/checkout@v3
+        with:
+          ref: 'origin/logs'
+          fetch-depth: '0'
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
