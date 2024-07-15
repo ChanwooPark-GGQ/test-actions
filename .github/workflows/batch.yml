@@ -15,11 +15,9 @@ jobs:
           ref: 'origin/logs'
           fetch-depth: '0'
 
-      # batch file 실행
-      - uses: actions/setup-node@v1
-      - run: 
-          npm install -g bats
-          bats -v .\..\..\test.bat
+      - uses: actions/checkout@v2
+      - name: Create report file
+        run: date +%s > report.txt
           
       # commit changes
       - name: Commit changes
@@ -28,6 +26,5 @@ jobs:
           author_name: "ChanwooPark-GGQ"
           author_email: "chanwoo.park@ggq.gg"
           message: 'Add Test Logs'
-          add: 'results.log'
-          branch: 'origin/logs'
+          add: 'report.txt'
           github_token: ${{ secrets.PUB_TOKEN }}
