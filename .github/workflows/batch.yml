@@ -27,10 +27,10 @@ jobs:
           git config --global user.name "ChanwooPark-GGQ"
           git config --global user.email "chanwoo.park@ggq.gg"
           git pull
-          git add -A
-          git commit -am "add Test logs"
 
-      - uses: ad-m/github-push-action@master
-        with:
-          branch: 'origin/logs'
-          github_token: ${{ secrets.PUB_TOKEN }}
+      - name: Commit report
+        run: |
+          git config --global user.name "ChanwooPark-GGQ"
+          git config --global user.email "chanwoo.park@ggq.gg"
+          git commit -am "Automated report"
+          git push
