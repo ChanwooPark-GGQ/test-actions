@@ -33,4 +33,5 @@ jobs:
           git config --global user.name "ChanwooPark-GGQ"
           git config --global user.email "chanwoo.park@ggq.gg"
           git commit -m "Automated report"
+          git add -A
           git push
