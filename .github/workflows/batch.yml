@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     steps:
       # logs 브랜치로 checkout
-      - name: logs branch 
+      - name: origin/logs branch 
         uses: actions/checkout@v2
         with:
           ref: 'origin/logs'
@@ -20,6 +20,7 @@ jobs:
         run: |
           git config user.name "ChanwooPark-GGQ"
           git config user.email "chanwoo.park@ggq.gg"
+          git pull
       
       # batch file 실행
       - uses: actions/setup-node@v1
