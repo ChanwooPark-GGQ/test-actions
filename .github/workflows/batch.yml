@@ -1,4 +1,4 @@
-name: Running Test Batch 
+name: Running Jmeter Test
 
 on:
   schedule:
@@ -14,11 +14,9 @@ jobs:
         with:
           ref: 'origin/logs'
           fetch-depth: '0'
-
-      - uses: actions/checkout@v2
-      - name: Create report file
-        run: date +%s > report.txt
-          
+      - run: cmd ${{ github.workspace }}\test.bat
+        shell: cmd
+      - run: dir ${{ github.workspace }}     
       # commit changes
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
@@ -26,5 +24,5 @@ jobs:
           author_name: "ChanwooPark-GGQ"
           author_email: "chanwoo.park@ggq.gg"
           message: 'Add Test Logs'
-          add: 'report.txt'
+          add: 'rresults.log'
           github_token: ${{ secrets.PUB_TOKEN }}
