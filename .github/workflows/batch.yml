@@ -6,7 +6,7 @@ on:
 
 jobs:
   check-bats-version:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       # logs 브랜치로 checkout
       - name: origin/logs branch 
@@ -14,16 +14,12 @@ jobs:
         with:
           ref: 'origin/logs'
           fetch-depth: '0'
-      - run: cmd ${{ github.workspace }}\test.bat > ${{ github.workspace }}\result.log
-        shell: cmd
-      - run: dir ${{ github.workspace }}     
-      # commit changes
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
+          
+      - run: ${{ github.workspace }}/test > ${{ github.workspace }}/test_report/result.log
+      - run: ls ${{ github.workspace }}     
+
+      - name: Upload JMeter Test Results
+        uses: actions/upload-artifact@v2.2.4
         with:
-          author_name: "ChanwooPark-GGQ"
-          author_email: "chanwoo.park@ggq.gg"
-          message: 'Add Test Logs'
-          add: 'result.log'
-          new_branch: 'origin/logs'
-          github_token: ${{ secrets.PUB_TOKEN }}
+          name: test_results
+          path: test_report
