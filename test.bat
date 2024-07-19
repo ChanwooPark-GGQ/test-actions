@@ -4,6 +4,4 @@ set TIMESTAMP=%date/_%_%time::=_%
 set RESULTS_FILE=results.log
 
 
-date /t > %RESULTS_FILE%
-
-move %RESULTS_FILE% ../../
+date /t
