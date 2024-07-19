@@ -5,5 +5,3 @@ set RESULTS_FILE=results.log
 
 
 date /t > %RESULTS_FILE%
-
-move %RESULTS_FILE% ../../
