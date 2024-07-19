@@ -25,4 +25,5 @@ jobs:
           author_email: "chanwoo.park@ggq.gg"
           message: 'Add Test Logs'
           add: 'result.log'
+          new_branch: 'origin/logs'
           github_token: ${{ secrets.PUB_TOKEN }}
